@@ -1,9 +1,24 @@
 import React from 'react';
+import { Outlet } from 'react-router';
+import Footer from '../components/Footer/Footer';
+import NavBar from '../components/Header/NavBar';
 
 const Root = () => {
     return (
         <div>
-            <h1>Iam root</h1>
+            <header>
+                <NavBar></NavBar>
+            </header>
+           
+            <main>
+                <Outlet></Outlet>
+
+            </main>
+            <footer>
+                <Footer></Footer>
+            </footer>
+
+            
             
         </div>
     );
