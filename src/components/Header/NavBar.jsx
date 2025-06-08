@@ -1,7 +1,8 @@
 import { use } from "react";
 import { AuthContext } from "../../provider/AuthContext";
-import { Link, NavLink, useNavigate } from "react-router";
-
+import { Link, Links, NavLink, useNavigate } from "react-router";
+import Alert from "../Alert/Alert";
+import './NavBar';
 
 const NavBar = () => {
 
@@ -9,7 +10,10 @@ const NavBar = () => {
     const {user, signOutUser} = use(AuthContext);
     const navigate = useNavigate();
   
-
+    const handleLogOut = () => {
+    signOutUser();
+    Alert('success', 'Successfully logged out');
+     };
 
   
     const links = <>
@@ -23,12 +27,10 @@ const NavBar = () => {
     </>
     return (
         <div className=''>
-            <div className="navbar bg-base-100 px-3">
+            <div className="navbar bg-base-100 px-4">
   <div className="navbar-start">
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-      </div>
+      
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
@@ -59,28 +61,34 @@ const NavBar = () => {
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
-            alt="Tailwind CSS Navbar component"
+          alt={user?.name}
             src={user?.photoURL} />
         </div>
       </div>
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
+        <div className="lg:hidden flex flex-col">
+          {links}
+        </div>
         <Link>
-          <li>
+          
             <button
-             onClick={signOutUser}
+            className="ml-4 a"
             >
-              Logout
+              My profile
             </button>
-          </li>
+          
+        </Link>
+        <Link>
+          
+            <button
+            className="ml-4 a"
+             onClick={handleLogOut}
+            >
+             Logout
+            </button>
+          
         </Link>
       </ul>
     </div>
@@ -90,16 +98,30 @@ const NavBar = () => {
    <>
     <button
       onClick={() => navigate('/auth/login')}
-      className="btn btn-neutral rounded-none"
+      className="btn bg-slate-700 text-white hidden lg:block"
     >
       Login
     </button>
-    <button
-      onClick={() => navigate('/auth/register')}
-      className="btn btn-neutral rounded-none"
+   <div className="dropdown dropdown-end lg:hidden">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+       {
+        links
+       }
+
+      <button
+      onClick={() => navigate('/auth/login')}
+      className="btn bg-slate-700 text-white "
     >
-      Reg
+      Login
     </button>
+      </ul>
+    </div>
+         
    </>
   )}
 </div>

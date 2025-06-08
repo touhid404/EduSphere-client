@@ -23,6 +23,7 @@ const AddArticle = () => {
         data.author = {
             email: user?.email,
             username: user?.displayName,
+            userProfile: user?.photoURL
         };
 
         axios.post('http://localhost:3000/addarticles', data)
