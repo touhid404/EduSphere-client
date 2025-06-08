@@ -1,10 +1,22 @@
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthContext";
 import { Link, Links, NavLink, useNavigate } from "react-router";
 import Alert from "../Alert/Alert";
 import './NavBar';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const NavBar = () => {
+   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
+
 
 
     const {user, signOutUser} = use(AuthContext);
@@ -17,13 +29,10 @@ const NavBar = () => {
 
   
     const links = <>
-
-    
-      
       <NavLink to='/' className='ml-4 a'>Home</NavLink>
-      <NavLink to='/profile' className='ml-4 a'>All Articles</NavLink>
+      <NavLink to='/allArticles' className='ml-4 a'>All Articles</NavLink>
       <NavLink to='/feedback' className='ml-4 a'>My Articles</NavLink>
-      <NavLink to='/add-article' className='ml-4 a'>Post Article</NavLink>
+      <NavLink to='/addArticle' className='ml-4 a'>Post Article</NavLink>
     </>
     return (
         <div className=''>
@@ -121,9 +130,25 @@ const NavBar = () => {
     </button>
       </ul>
     </div>
+
          
    </>
   )}
+   <button
+              onClick={toggleTheme}
+              className="p-2 text-xl hover:text-teal-800 transition swap swap-rotate"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? (
+                <div className="swap off text-black">
+                  <FaMoon />
+                </div>
+              ) : (
+                <div className="swap on text-white">
+                  <FaSun />
+                </div>
+              )}
+            </button>
 </div>
   
 </div>

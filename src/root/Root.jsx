@@ -10,7 +10,7 @@ const Root = () => {
                 <NavBar></NavBar>
             </header>
            
-            <main>
+            <main className='max-w-7xl mx-auto'>
                 <Outlet></Outlet>
 
             </main>

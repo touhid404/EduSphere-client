@@ -26,6 +26,11 @@ const AddArticle = () => {
             userProfile: user?.photoURL
         };
 
+        // optional
+        data.likeCount = 0;
+        data.commentCount = 0;
+
+
         axios.post('http://localhost:3000/addarticles', data)
             .then(res => {
                 if (res.data.insertedId) {
@@ -82,6 +87,12 @@ const AddArticle = () => {
                             <option>Education</option>
                             <option>Health</option>
                             <option>Lifestyle</option>
+                            <option>Finance</option>
+                            <option>Science</option>
+                            <option>Entertainment</option>
+                            <option>Sports</option>
+                            <option>Travel</option>
+                            <option>Others</option>
                         </select>
                     </div>
 

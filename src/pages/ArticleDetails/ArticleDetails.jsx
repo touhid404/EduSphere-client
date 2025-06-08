@@ -1,0 +1,175 @@
+import { Suspense, use, useState } from 'react';
+import { FaRegThumbsUp, FaRegComment } from 'react-icons/fa';
+import { useLoaderData } from 'react-router';
+import { AuthContext } from '../../provider/AuthContext';
+import { format } from 'date-fns';
+import axios from 'axios';
+import Alert from '../../components/Alert/Alert';
+import Swal from 'sweetalert2';
+import AllComments from './AllComments';
+import Loader from '../../components/Loader/Loader';
+const ArticleDetails = () => {
+
+
+
+
+
+  const { article, comments } = useLoaderData();
+
+  const [tempComments,setTempcomments] =  useState(comments);
+
+
+  const {user} = use(AuthContext);
+
+  const {
+    _id,
+    title,
+    content,
+    category,
+    tags,
+    thumbnail,
+    postDate,
+    author,
+    likeCount,
+  } = article;
+
+
+ 
+
+const openCommentModal = () => {
+  Swal.fire({
+    title: "Add your comment",
+    input: "textarea",
+    inputPlaceholder: "Type your comment here...",
+    inputAttributes: {
+      'aria-label': 'Type your comment here'
+    },
+    showCancelButton: true,
+    confirmButtonText: "Add"
+  }).then((result) => {
+    if (result.isConfirmed && result.value) {
+      const comment = result.value;
+      handleComment(comment); 
+    }
+  });
+};
+
+
+  const handleComment= ( comment)=>{
+
+    const now = new Date();
+    const cDate = format(now, "PPP p"); 
+    const commentData = {
+            
+            articleId : _id,
+            userEmail: user?.email,
+            userName: user?.displayName,
+            userProfile: user?.photoURL,
+            comment,
+            commentDate: cDate
+    }
+    axios.post('http://localhost:3000/addcomments', commentData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    setTempcomments( [...tempComments, commentData]);
+                    Alert('success', 'comment added successfully!');
+                    
+                }
+            })
+            .catch(err => {
+                Alert('error', err.message || 'Failed to comment');
+            });
+
+
+
+    console.log(commentData)
+
+
+  
+
+  }
+
+  // const commentPromise = fetch(`http://localhost:3000/comments/${_id}`).then(res => res.json());
+
+  return (
+    <div className="max-w-4xl mx-auto p-6  shadow-lg rounded-2xl mt-10 border border-gray-200">
+      {/* Thumbnail */}
+      {thumbnail && (
+        <img
+          src={thumbnail}
+          alt={title}
+          className="w-full h-72 object-cover rounded-xl mb-6"
+        />
+      )}
+
+      {/* Title */}
+      <h1 className="text-xl lg:text-4xl font-bold  mb-3">{title}</h1>
+
+      {/* Meta info */}
+      <div className="flex justify-between items-center text-sm text-gray-400 mb-6 border-b pb-4">
+        <span className="italic">Category: {category}</span>
+        <span>{postDate}</span>
+      </div>
+
+      {/* Author Info */}
+      <div className="flex items-center gap-4 mb-6">
+        <img
+          src={author?.userProfile}
+          alt={author?.username}
+          className="w-12 h-12 rounded-full object-cover"
+        />
+        <div>
+          <p className="text-base font-semibold">{author?.username}</p>
+          <p className="text-sm ">{author?.email}</p>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="prose max-w-none mb-8">
+        <p>{content}</p>
+      </div>
+
+      {tags.length > 0 && (
+        <div className="mb-8">
+          <h3 className="text-md font-semibold mb-2">Tags</h3>
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="  text-sm px-3 py-1 rounded-full border border-gray-300"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="flex items-center gap-8 text-gray-600 border-t pt-4 ml-5">
+        <div className="flex items-center gap-2 text-sm">
+          <FaRegThumbsUp size={18} className="" />
+          <span>{likeCount}</span>
+        </div>
+        <div className="flex items-center gap-2 text-sm">
+          <button className="btn rounded-3xl border border-gray-500" onClick={openCommentModal}>
+            <FaRegComment size={18} className="" />
+            <span>Add comment</span>
+            
+          </button>
+
+
+         
+
+        </div>
+        
+      </div>
+       <Suspense fallback={<Loader></Loader>}>
+            <AllComments tempComments={tempComments}></AllComments>
+          </Suspense>
+
+    </div>
+
+  );
+};
+
+export default ArticleDetails;
