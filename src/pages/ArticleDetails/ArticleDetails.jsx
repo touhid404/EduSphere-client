@@ -13,7 +13,6 @@ const ArticleDetails = () => {
 
 
 
-
   const { article, comments } = useLoaderData();
 
   const [tempComments,setTempcomments] =  useState(comments);
@@ -29,12 +28,36 @@ const ArticleDetails = () => {
     tags,
     thumbnail,
     postDate,
-    author,
-    likeCount,
+    authorEmail,
+    authorName,
+    authorProfile,
   } = article;
+  //Like functionality 
+   const [likes, setLikes] = useState(article.likeCount);
+   const handleLike = (id) => {
+        if(user?.email=== authorEmail){
+            Alert('error','Sorry, you can not like your own post');
+            return;
+        }
+        const updatedLikes = likes + 1;
+        setLikes(updatedLikes);
+        const likeInfo = { likeCount: updatedLikes };
+
+        axios.patch(`http://localhost:3000/likes/${id}`, likeInfo)
+        .then(res => {
+        if (res.data.modifiedCount > 0) {
+        Alert('success', 'you like this article successfully!');
+    }
+  })
+  .catch(err => {
+    Alert('error', err.message || 'Failed to update article');
+  });
+
+       
+    };
 
 
- 
+//  Comment modal function
 
 const openCommentModal = () => {
   Swal.fire({
@@ -89,6 +112,8 @@ const openCommentModal = () => {
 
   }
 
+
+
   // const commentPromise = fetch(`http://localhost:3000/comments/${_id}`).then(res => res.json());
 
   return (
@@ -114,13 +139,13 @@ const openCommentModal = () => {
       {/* Author Info */}
       <div className="flex items-center gap-4 mb-6">
         <img
-          src={author?.userProfile}
-          alt={author?.username}
+          src={authorProfile}
+          alt={authorName}
           className="w-12 h-12 rounded-full object-cover"
         />
         <div>
-          <p className="text-base font-semibold">{author?.username}</p>
-          <p className="text-sm ">{author?.email}</p>
+          <p className="text-base font-semibold">{authorName}</p>
+          <p className="text-sm ">{authorEmail}</p>
         </div>
       </div>
 
@@ -145,10 +170,16 @@ const openCommentModal = () => {
         </div>
       )}
 
-      <div className="flex items-center gap-8 text-gray-600 border-t pt-4 ml-5">
+      <div className="flex items-center gap-8  border-t pt-4 ml-5">
         <div className="flex items-center gap-2 text-sm">
+          <button className="btn rounded-3xl border border-gray-500" onClick={()=> handleLike(_id)}>
+            
+            {/* <span className="font-semibold">{likes}</span> */}
           <FaRegThumbsUp size={18} className="" />
-          <span>{likeCount}</span>
+            
+            <span>{likes} Like</span>
+            
+          </button>
         </div>
         <div className="flex items-center gap-2 text-sm">
           <button className="btn rounded-3xl border border-gray-500" onClick={openCommentModal}>

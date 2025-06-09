@@ -3,17 +3,16 @@ const AllComments = ({ tempComments }) => {
 
     return (
         <div className="max-w-2xl mx-auto">
-            <h2 className="text-xl font-semibold my-4">All Comments</h2>
+            <h2 className="text-xl font-semibold my-4 text-center">All Comments</h2>
             {tempComments.length === 0 ? (
                 <p className="text-gray-500">No comments found.</p>
             ) : (
                 <ul className="space-y-1">
-                    {tempComments.map((comment) => (
+                    {tempComments.map((comment, index) => (
                         <li
-                            key={comment._id}
+                            key={index}
                             className="flex space-x-3 p-2 "
                         >
-                            {/* Profile Picture */}
                             <img
                                 src={comment.userProfile}
                                 alt={comment.userName}

@@ -10,16 +10,15 @@ const ArticleCard = ({ article }) => {
     tags = [],
     thumbnail,
     postDate,
-    author = {},
-    reactions = 0,
-    comments = 0,
+    authorName,
+    
   } = article;
 
   return (
     <div className=" border border-gray-500 rounded-2xl p-6 shadow-md mb-6 hover:shadow-lg transition-shadow duration-200">
       
         <div>
-          <p className="font-semibold text-sm">{author.username || 'Unknown Author'}</p>
+          <p className="font-semibold text-sm">{authorName || 'Unknown Author'}</p>
           <p className="text-xs ">{postDate}</p>
         </div>
 
@@ -48,17 +47,10 @@ const ArticleCard = ({ article }) => {
         </div>
       )}
 
-      <div className="flex items-center justify-between text-sm  border-t pt-3 mt-3">
-        <div className="flex gap-6 items-center">
-          <span className="flex items-center gap-1">
-            <FaRegThumbsUp size={18} className="text-blue-500" /> {reactions}
-          </span>
-          <span className="flex items-center gap-1">
-            <FaRegComment size={18} className="text-green-500" /> {comments}
-          </span>
-        </div>
+      <div className="flex items-center justify-between text-sm  border-t  ">
+        
         <Link to={`/articleDetail/${_id}`}>
-           <span className="text-xs text-gray-500 italic btn btn-ghost"> read more
+           <span className="text-xs  italic btn btn-ghost mt-2"> read more
         </span>
         </Link>
       </div>

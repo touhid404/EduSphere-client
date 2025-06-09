@@ -20,11 +20,11 @@ const AddArticle = () => {
         const postDate = format(now, "PPP p"); 
         data.postDate = postDate;
 
-        data.author = {
-            email: user?.email,
-            username: user?.displayName,
-            userProfile: user?.photoURL
-        };
+
+        // Add user details
+        data.authorEmail = user?.email || 'Anonymous';
+        data.authorName = user?.displayName || 'Anonymous';
+        data.authorProfile = user?.photoURL || 'https://via.placeholder.com/150'; // Default profile image if not available
 
         // optional
         data.likeCount = 0;

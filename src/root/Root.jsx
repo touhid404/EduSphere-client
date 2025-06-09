@@ -6,7 +6,7 @@ import NavBar from '../components/Header/NavBar';
 const Root = () => {
     return (
         <div>
-            <header>
+            <header className='sticky top-0 z-50  shadow-md'>
                 <NavBar></NavBar>
             </header>
            

@@ -10,6 +10,7 @@ import Loader from "../components/Loader/Loader";
 import AllArticles from "../pages/AllArticles/AllArticles";
 import PrivateRoute from "../private/PrivateRoute";
 import ArticleDetails from "../pages/ArticleDetails/ArticleDetails";
+import MyArticles from "../pages/MyArticles/MyArticles";
 
 
 export const router = createBrowserRouter([
@@ -58,7 +59,12 @@ export const router = createBrowserRouter([
 
       </PrivateRoute>,
   hydrateFallbackElement: <Loader />
-},
+            },
+
+            {
+                path:'myArticles',
+                Component: MyArticles,
+            },
 
 
 

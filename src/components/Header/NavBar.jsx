@@ -2,7 +2,7 @@ import { use, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthContext";
 import { Link, Links, NavLink, useNavigate } from "react-router";
 import Alert from "../Alert/Alert";
-import './NavBar';
+import './NavBar.css';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const NavBar = () => {
@@ -31,7 +31,7 @@ const NavBar = () => {
     const links = <>
       <NavLink to='/' className='ml-4 a'>Home</NavLink>
       <NavLink to='/allArticles' className='ml-4 a'>All Articles</NavLink>
-      <NavLink to='/feedback' className='ml-4 a'>My Articles</NavLink>
+      <NavLink to='/myArticles' className='ml-4 a'>My Articles</NavLink>
       <NavLink to='/addArticle' className='ml-4 a'>Post Article</NavLink>
     </>
     return (
@@ -107,7 +107,7 @@ const NavBar = () => {
    <>
     <button
       onClick={() => navigate('/auth/login')}
-      className="btn bg-slate-700 text-white hidden lg:block"
+      className="btn bg-primary text-white hidden lg:block"
     >
       Login
     </button>

@@ -40,9 +40,9 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="p-8  shadow-lg w-full max-w-md border border-teal-200 rounded-xl">
-       <title>Login  Page | Roommate Finder</title>
+       <title>Login  Page | Edu Soft</title>
 
-        <h2 className="text-2xl font-bold text-teal-600 text-center mb-2 ">
+        <h2 className="text-2xl font-bold  text-center mb-2 ">
           Welcome Back to Mate!
         </h2>
         <p className="text-center text-sm  mb-6">
@@ -74,7 +74,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-teal-600 text-white py-2 rounded-md hover:bg-teal-700 transition"
+            className="w-full bg-primary text-white py-2 rounded-md hover:bg-teal-700 transition"
           >
             Log in
           </button>
@@ -82,7 +82,7 @@ const Login = () => {
 
         <button 
           onClick={handleGoogleLogIn}
-          className="mt-4 w-full flex items-center  text-white justify-center border border-gray-300 py-2 rounded-md bg-teal-600 hover:shadow-md transition text-sm"
+          className="mt-4 w-full flex items-center  text-white justify-center border border-gray-300 py-2 rounded-md bg-primary hover:shadow-md transition text-sm"
         >
           <svg aria-label="Google logo" width="18" height="18" className="mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <g>
@@ -98,7 +98,7 @@ const Login = () => {
 
         <p className="text-center mt-6 text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link to="/auth/register" className="text-teal-600 hover:underline">
+          <Link to="/auth/register" className=" hover:underline">
             Register here
           </Link>
         </p>
