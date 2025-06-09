@@ -1,24 +1,51 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { useLoaderData } from 'react-router';
 import ArticleCard from './ArticleCard';
 
 const AllArticles = () => {
     const allArticlesData = useLoaderData();
+    const [selectedCategory, setSelectedCategory] = useState('All');
+
+    const categories = useMemo(() => {
+        const allCategories = allArticlesData.map(article => article.category);
+        return ['All', ...Array.from(new Set(allCategories))];
+    }, [allArticlesData]);
+
+    const filteredArticles = selectedCategory === 'All'
+        ? allArticlesData
+        : allArticlesData.filter(article => article.category === selectedCategory);
 
     return (
-        <div>
-            <h1 className="text-2xl font-bold  mb-6 text-center">
-                All Articles
-            </h1>
-            <div className="px-2.5 max-w-5xl mx-auto">
-                {allArticlesData.length > 0 ? (
-                    allArticlesData.map(article => (
-                        <ArticleCard key={article._id} article={article} />
-                    ))
+        <div className="flex max-w-6xl flex-col md:flex-row lg:flex-row mx-auto px-4 gap-6 mt-5">
+            <aside className="w-60  p-4 rounded-lg border border-gray-200 shadow-md">
+                <h2 className="font-semibold text-lg mb-4">Categories</h2>
+                <ul className="space-y-2">
+                    {categories.map((category, index) => (
+                        <li
+                            key={index}
+                            onClick={() => setSelectedCategory(category)}
+                            className={`cursor-pointer px-3 py-1 rounded hover:bg-blue-500 hover:text-white ${
+                                selectedCategory === category ? 'bg-blue-500 text-white' : ''
+                            }`}
+                        >
+                            {category}
+                        </li>
+                    ))}
+                </ul>
+            </aside>
+
+            <main className="flex-1">
+                <h1 className="text-2xl font-bold mb-6 text-center">All Articles</h1>
+                {filteredArticles.length > 0 ? (
+                    <div className="grid gap-4">
+                        {filteredArticles.map(article => (
+                            <ArticleCard key={article._id} article={article} />
+                        ))}
+                    </div>
                 ) : (
-                    <p className="text-center text-gray-600">No articles available</p>
+                    <p className="text-center text-gray-600">No articles available in this category</p>
                 )}
-            </div>
+            </main>
         </div>
     );
 };

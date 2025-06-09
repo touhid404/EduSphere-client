@@ -55,47 +55,47 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
-      <div className="p-8  shadow-lg w-full max-w-md border mt-2 border-teal-200 rounded-xl">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="p-8 shadow-lg w-full max-w-md border mt-2 border-indigo-200 rounded-xl">
+        <title>Register Page | Edu Sphere</title>
 
-          <title>Register Page | Roommate Finder</title>
-        <h2 className="text-2xl text-teal-600 font-bold text-center mb-2 ">
-          Create Your  Account
+        <h2 className="text-2xl text-indigo-600 font-bold text-center mb-2">
+          Create Your Account
         </h2>
-        <p className="text-center text-sm  mb-6">
-          Sign up to find your perfect roommate.
+        <p className="text-center text-sm mb-6">
+          Sign up to access exclusive content and features.
         </p>
 
         <form className="space-y-5" onSubmit={handleRegister}>
           <div>
-            <label className="block mb-1 font-medium ">Full Name</label>
+            <label className="block mb-1 font-medium">Full Name</label>
             <input
               type="text"
               name="name"
               placeholder="Enter your full name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
               required
             />
           </div>
 
           <div>
-            <label className="block mb-1 font-medium ">Email</label>
+            <label className="block mb-1 font-medium">Email</label>
             <input
               type="email"
               name="email"
               placeholder="Enter your email address"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
               required
             />
           </div>
 
           <div>
-            <label className="block mb-1 font-medium ">Photo URL</label>
+            <label className="block mb-1 font-medium">Photo URL</label>
             <input
               type="text"
               name="photoURL"
               placeholder="Enter your photo URL"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
           </div>
 
@@ -105,22 +105,22 @@ const Register = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-teal-600 text-white py-2 rounded-md hover:bg-teal-700 transition"
+            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition"
           >
             Register
           </button>
         </form>
 
-        <button 
+        <button
           onClick={handleGoogleLogIn}
-          className="mt-4 w-full flex items-center justify-center border border-gray-300 py-2 rounded-md bg-teal-600 hover:shadow-md transition text-sm"
+          className="mt-4 w-full flex items-center justify-center border border-gray-300 py-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 transition text-sm"
         >
           <svg aria-label="Google logo" width="18" height="18" className="mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <g>
@@ -136,13 +136,14 @@ const Register = () => {
 
         <p className="text-center mt-6 text-sm text-gray-600">
           Already have an account?{' '}
-          <Link to="/auth/login" className="text-teal-600 hover:underline">
+          <Link to="/auth/login" className="text-indigo-600 hover:underline">
             Log in here
           </Link>
         </p>
       </div>
     </div>
   );
+  
 };
 
 export default Register;

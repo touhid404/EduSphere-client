@@ -21,11 +21,11 @@ const AllComments = ({ tempComments }) => {
 
                             {/* Comment Content */}
                             <div>
-                                <div className="bg-gray-200 rounded-xl px-4 py-2">
-                                    <p className="font-semibold text-sm text-gray-800">
+                                <div className="shadow border bg-base-100 rounded-xl px-4 py-2">
+                                    <p className="font-semibold text-sm ">
                                         {comment.userName}
                                     </p>
-                                    <p className="text-sm text-gray-700 mt-1">
+                                    <p className="text-sm  mt-1">
                                         {comment.comment}
                                     </p>
                                 </div>

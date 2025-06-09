@@ -64,6 +64,7 @@ export const router = createBrowserRouter([
             {
                 path:'myArticles',
                 Component: MyArticles,
+                hydrateFallbackElement: <Loader></Loader>
             },
 
 

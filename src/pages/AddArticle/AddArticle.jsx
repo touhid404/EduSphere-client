@@ -45,7 +45,7 @@ const AddArticle = () => {
 
     return (
         <div className="max-w-4xl mx-auto px-2 lg:px-6 py-10">
-            <h2 className="text-xl  lg:text-3xl font-bold text-center text-gray-800 mb-8">📝 Create a New Article</h2>
+            <h2 className="text-xl  lg:text-3xl font-bold text-center  mb-8">📝 Create a New Article</h2>
 
             <form onSubmit={handleAddArticle} className=" shadow-xl rounded-2xl p-3 lg:p-8 space-y-8 border border-gray-100">
                 

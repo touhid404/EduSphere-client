@@ -57,6 +57,9 @@ const ArticleDetails = () => {
     };
 
 
+    
+
+
 //  Comment modal function
 
 const openCommentModal = () => {
@@ -118,7 +121,6 @@ const openCommentModal = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6  shadow-lg rounded-2xl mt-10 border border-gray-200">
-      {/* Thumbnail */}
       {thumbnail && (
         <img
           src={thumbnail}
@@ -127,16 +129,13 @@ const openCommentModal = () => {
         />
       )}
 
-      {/* Title */}
-      <h1 className="text-xl lg:text-4xl font-bold  mb-3">{title}</h1>
+      <h1 className="text-xl lg:text-3xl font-bold  mb-3">{title}</h1>
 
-      {/* Meta info */}
-      <div className="flex justify-between items-center text-sm text-gray-400 mb-6 border-b pb-4">
+      <div className="flex justify-between items-center text-sm  mb-6 border-b pb-4">
         <span className="italic">Category: {category}</span>
-        <span>{postDate}</span>
+        <span>Posted on: {postDate}</span>
       </div>
 
-      {/* Author Info */}
       <div className="flex items-center gap-4 mb-6">
         <img
           src={authorProfile}

@@ -1,4 +1,4 @@
-import React, {  useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthContext';
 import Alert from '../../components/Alert/Alert';
@@ -7,7 +7,6 @@ const Login = () => {
   const { signInUser, loginWithGoogle } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -19,7 +18,6 @@ const Login = () => {
       .then(() => {
         Alert('success', 'Log in successful');
         navigate(`${location.state ? location.state : "/"}`);
-        
       })
       .catch((error) => {
         Alert('error', error.message);
@@ -39,13 +37,13 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="p-8  shadow-lg w-full max-w-md border border-teal-200 rounded-xl">
-       <title>Login  Page | Edu Soft</title>
+      <div className="p-8 shadow-lg w-full max-w-md border border-indigo-200 rounded-xl">
+        <title>Login Page | Edu Soft</title>
 
-        <h2 className="text-2xl font-bold  text-center mb-2 ">
+        <h2 className="text-2xl font-bold text-center text-indigo-600 mb-2">
           Welcome Back to Mate!
         </h2>
-        <p className="text-center text-sm  mb-6">
+        <p className="text-center text-sm mb-6">
           Find your ideal roommate in just a few clicks.
         </p>
 
@@ -56,7 +54,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter your email address"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
               required
             />
           </div>
@@ -67,22 +65,22 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-primary text-white py-2 rounded-md hover:bg-teal-700 transition"
+            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition"
           >
             Log in
           </button>
         </form>
 
-        <button 
+        <button
           onClick={handleGoogleLogIn}
-          className="mt-4 w-full flex items-center  text-white justify-center border border-gray-300 py-2 rounded-md bg-primary hover:shadow-md transition text-sm"
+          className="mt-4 w-full flex items-center justify-center text-white border border-gray-300 py-2 rounded-md bg-indigo-500 hover:bg-indigo-600 transition text-sm"
         >
           <svg aria-label="Google logo" width="18" height="18" className="mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <g>
@@ -98,12 +96,10 @@ const Login = () => {
 
         <p className="text-center mt-6 text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link to="/auth/register" className=" hover:underline">
+          <Link to="/auth/register" className="text-indigo-600 hover:underline">
             Register here
           </Link>
         </p>
-
-        
       </div>
     </div>
   );
