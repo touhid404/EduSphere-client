@@ -16,17 +16,20 @@ const AllArticles = () => {
         : allArticlesData.filter(article => article.category === selectedCategory);
 
     return (
-        <div className="flex max-w-6xl flex-col md:flex-row lg:flex-row mx-auto px-4 gap-6 mt-5">
-            <aside className="w-60  p-4 rounded-lg border border-gray-200 shadow-md">
+        <div className="flex max-w-5xl flex-col md:flex-row lg:flex-row mx-auto px-4 gap-6 mt-5">
+            <aside className="w-60 p-4 rounded-lg border border-gray-200 shadow-md">
                 <h2 className="font-semibold text-lg mb-4">Categories</h2>
                 <ul className="space-y-2">
                     {categories.map((category, index) => (
                         <li
                             key={index}
                             onClick={() => setSelectedCategory(category)}
-                            className={`cursor-pointer px-3 py-1 rounded hover:bg-blue-500 hover:text-white ${
-                                selectedCategory === category ? 'bg-blue-500 text-white' : ''
-                            }`}
+                            className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium transition duration-200
+                                ${
+                                    selectedCategory === category
+                                        ? 'bg-gradient-to-r from-pink-500 to-red-500 text-white shadow-md'
+                                        : 'bg-gray-100 hover:bg-pink-100 text-gray-800'
+                                }`}
                         >
                             {category}
                         </li>
@@ -34,6 +37,7 @@ const AllArticles = () => {
                 </ul>
             </aside>
 
+            {/* Main Article Display */}
             <main className="flex-1">
                 <h1 className="text-2xl font-bold mb-6 text-center">All Articles</h1>
                 {filteredArticles.length > 0 ? (

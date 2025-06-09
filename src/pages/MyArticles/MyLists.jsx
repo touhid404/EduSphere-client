@@ -151,7 +151,7 @@ const MyLists = ({ myArticlesPromise }) => {
         </table>
       </div>
 
-      <dialog id="edit_modal" className="modal">
+      {/* <dialog id="edit_modal" className="modal">
         <div className="modal-box max-w-2xl">
           <h3 className="font-bold text-lg mb-4">Edit Article</h3>
 
@@ -262,7 +262,116 @@ const MyLists = ({ myArticlesPromise }) => {
             <p className="py-4">No article selected.</p>
           )}
         </div>
-      </dialog>
+      </dialog> */}
+
+      <dialog id="edit_modal" className="modal">
+  <div className="modal-box max-w-2xl">
+    <h3 className="font-bold text-xl mb-6 ">📝 Edit Article</h3>
+
+    {selectedArticle ? (
+      <form onSubmit={handleUpdate}>
+        <div className="space-y-5">
+          <div>
+            <label className="block font-medium text-gray-600 mb-1">Title</label>
+            <input
+              type="text"
+              name="title"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              defaultValue={selectedArticle.title}
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium text-gray-600 mb-1">Content</label>
+            <textarea
+              name="content"
+              rows="4"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              defaultValue={selectedArticle.content}
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium text-gray-600 mb-1">Category</label>
+            <input
+              type="text"
+              name="category"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              defaultValue={selectedArticle.category}
+              required
+            />
+          </div>
+          
+
+         
+          <div>
+            <label className="block font-medium text-gray-600 mb-1">Tags (comma separated)</label>
+            <input
+              type="text"
+              name="tags"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              defaultValue={selectedArticle.tags?.join(', ')}
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium text-gray-600 mb-1">Thumbnail Image URL</label>
+            <input
+              type="text"
+              name="thumbnail"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              defaultValue={selectedArticle.thumbnail}
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium text-gray-600 mb-1">Author Name</label>
+            <input
+              type="text"
+              name="authorName"
+              readOnly
+              className="w-full border border-gray-200 rounded-lg px-4 py-2  cursor-not-allowed"
+              defaultValue={selectedArticle.authorName}
+            />
+          </div>
+
+          <div>
+            <label className="block font-medium text-gray-600 mb-1">Author Email</label>
+            <input
+              type="email"
+              name="authorEmail"
+              readOnly
+              className="w-full border border-gray-200 rounded-lg px-4 py-2  cursor-not-allowed"
+              defaultValue={selectedArticle.authorEmail}
+            />
+          </div>
+
+          <div className="flex justify-end gap-4 pt-4">
+            <button
+              type="button"
+              className="px-5 py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-200 transition"
+              onClick={() => document.getElementById('edit_modal').close()}
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              className="px-5 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold hover:from-pink-600 hover:to-red-600 transition"
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </form>
+    ) : (
+      <p className="py-4 text-center text-gray-600">No article selected.</p>
+    )}
+  </div>
+</dialog>
+
     </div>
   );
 };

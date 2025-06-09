@@ -1,4 +1,6 @@
 a.active {
-    font-weight: bold;
-    color: blue;
+  font-weight: bold;
+  background: linear-gradient(to right, #ec4899, #ef4444); /* Tailwind's pink-500 to red-500 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

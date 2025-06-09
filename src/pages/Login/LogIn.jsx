@@ -40,11 +40,11 @@ const Login = () => {
       <div className="p-8 shadow-lg w-full max-w-md border border-indigo-200 rounded-xl">
         <title>Login Page | Edu Soft</title>
 
-        <h2 className="text-2xl font-bold text-center text-indigo-600 mb-2">
+        <h2 className="text-2xl font-bold text-center  mb-2">
           Welcome Back to Mate!
         </h2>
         <p className="text-center text-sm mb-6">
-          Find your ideal roommate in just a few clicks.
+          Please log in to continue to your account.
         </p>
 
         <form className="space-y-5" onSubmit={handleLogIn}>
@@ -54,7 +54,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter your email address"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-50"
               required
             />
           </div>
@@ -65,14 +65,14 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-50"
               required
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition"
+            className="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white py-2 rounded-md hover:from-pink-600 hover:to-red-600 transition"
           >
             Log in
           </button>
@@ -80,9 +80,9 @@ const Login = () => {
 
         <button
           onClick={handleGoogleLogIn}
-          className="mt-4 w-full flex items-center justify-center text-white border border-gray-300 py-2 rounded-md bg-indigo-500 hover:bg-indigo-600 transition text-sm"
+          className="mt-4 w-full flex items-center justify-center text-white border border-gray-300 py-2 rounded-md bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 transition text-sm"
         >
-          <svg aria-label="Google logo" width="18" height="18" className="mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <svg aria-label="Google logo" width="18" height="18" className="mr-2 rounded-2xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <g>
               <path fill="#fff" d="M0 0h512v512H0z" />
               <path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341" />

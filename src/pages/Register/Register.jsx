@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import Alert from '../../components/Alert/Alert';
 import { AuthContext } from '../../provider/AuthContext';
-
+import { FaEye  } from 'react-icons/fa';
+import { FaEyeSlash } from "react-icons/fa6";
 const Register = () => {
   const { createUser, loginWithGoogle, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
+
+  const [show,SetShow]= useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -16,18 +19,18 @@ const Register = () => {
     const password = form.password.value;
     const photoURL = form.photoURL.value;
     const hasUpperCase = /[A-Z]/.test(password);
-  const hasLowerCase = /[a-z]/.test(password);
-  const isLengthValid = password.length >= 6;
-    if (!hasUpperCase || !hasLowerCase || !isLengthValid) {
-    let message = 'Password must:';
-    if (!hasUpperCase) message += ' include an uppercase letter,';
-    if (!hasLowerCase) message += ' include a lowercase letter,';
-    if (!isLengthValid) message += ' be at least 6 characters long,';
-    message = message.replace(/,+$/, '.'); // Clean up trailing comma
-    Alert('error', message);
-    return;
-  }
+    const hasLowerCase = /[a-z]/.test(password);
+    const isLengthValid = password.length >= 6;
 
+    if (!hasUpperCase || !hasLowerCase || !isLengthValid) {
+      let message = 'Password must:';
+      if (!hasUpperCase) message += ' include an uppercase letter,';
+      if (!hasLowerCase) message += ' include a lowercase letter,';
+      if (!isLengthValid) message += ' be at least 6 characters long,';
+      message = message.replace(/,+$/, '.'); 
+      Alert('error', message);
+      return;
+    }
 
     createUser(emailInput, password)
       .then(() => {
@@ -59,7 +62,7 @@ const Register = () => {
       <div className="p-8 shadow-lg w-full max-w-md border mt-2 border-indigo-200 rounded-xl">
         <title>Register Page | Edu Sphere</title>
 
-        <h2 className="text-2xl text-indigo-600 font-bold text-center mb-2">
+        <h2 className="text-2xl  font-bold text-center mb-2">
           Create Your Account
         </h2>
         <p className="text-center text-sm mb-6">
@@ -73,7 +76,7 @@ const Register = () => {
               type="text"
               name="name"
               placeholder="Enter your full name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-50"
               required
             />
           </div>
@@ -84,7 +87,7 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Enter your email address"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-50"
               required
             />
           </div>
@@ -95,24 +98,32 @@ const Register = () => {
               type="text"
               name="photoURL"
               placeholder="Enter your photo URL"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-50"
             />
           </div>
 
-          <div>
+          <div className='relative'>
             <label className="block mb-1 font-medium">Password</label>
             <input
-              type="password"
+              type={show ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-50"
               required
             />
+             <p
+              onClick={()=>SetShow(!show)}
+              className='absolute bottom-3 right-3'>
+           
+            {
+                show ? <FaEyeSlash  className='text-gray-500' /> : <FaEye className='text-gray-500' />
+            }
+            </p>
           </div>
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition"
+            className="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white py-2 rounded-md hover:from-pink-600 hover:to-red-600 transition"
           >
             Register
           </button>
@@ -120,7 +131,7 @@ const Register = () => {
 
         <button
           onClick={handleGoogleLogIn}
-          className="mt-4 w-full flex items-center justify-center border border-gray-300 py-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 transition text-sm"
+          className="mt-4 w-full flex items-center justify-center border border-gray-300 py-2 rounded-md bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 transition text-sm text-white"
         >
           <svg aria-label="Google logo" width="18" height="18" className="mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <g>
@@ -143,7 +154,6 @@ const Register = () => {
       </div>
     </div>
   );
-  
 };
 
 export default Register;
