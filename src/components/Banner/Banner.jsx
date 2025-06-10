@@ -1,5 +1,5 @@
 import React from 'react';
-import eduImage from '../../assets/sample1.svg'; 
+import eduImage from '../../assets/hero1.jpg'; 
 import { motion } from 'framer-motion';
 
 const Banner = () => {
@@ -18,7 +18,7 @@ const Banner = () => {
           Empower minds by sharing your insights, tutorials, and ideas with a growing community of learners and thinkers. Join Edusphere — where education meets innovation.
         </p>
 
-        <button className="mt-6 px-6 py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <button className="mt-6 px-6 py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
           Learn more
         </button>
       </div>

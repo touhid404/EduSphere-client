@@ -46,7 +46,7 @@ const AddArticle = () => {
             <form onSubmit={handleAddArticle} className="shadow-xl rounded-2xl p-3 lg:p-8 space-y-8 border border-gray-100">
 
                 <fieldset className="space-y-6">
-                    <legend className="text-xl font-semibold text-gray-700 mb-4">📰 Article Details</legend>
+                    <legend className="text-xl font-semibold  mb-4">📰 Article Details</legend>
 
                     <div>
                         <label className="block text-sm font-medium text-gray-600 mb-1">Title</label>

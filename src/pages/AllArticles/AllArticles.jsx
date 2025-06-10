@@ -17,8 +17,8 @@ const AllArticles = () => {
 
     return (
         <div className="flex max-w-5xl flex-col md:flex-row lg:flex-row mx-auto px-4 gap-6 mt-5">
-            <aside className="w-60 p-4 rounded-lg border border-gray-200 shadow-md">
-                <h2 className="font-semibold text-lg mb-4">Categories</h2>
+            <aside className="w-60 p-4 ">
+                <h2 className="font-semibold text-xl mb-4">Categories</h2>
                 <ul className="space-y-2">
                     {categories.map((category, index) => (
                         <li
@@ -37,9 +37,8 @@ const AllArticles = () => {
                 </ul>
             </aside>
 
-            {/* Main Article Display */}
             <main className="flex-1">
-                <h1 className="text-2xl font-bold mb-6 text-center">All Articles</h1>
+                <h1 className="text-xl font-bold mb-6 text-center">All Articles</h1>
                 {filteredArticles.length > 0 ? (
                     <div className="grid gap-4">
                         {filteredArticles.map(article => (

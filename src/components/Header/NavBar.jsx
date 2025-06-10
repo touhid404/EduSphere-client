@@ -43,7 +43,7 @@ const NavBar = () => {
               {links}
             </ul>
           </div>
-          <p className="font-bold text-xl hidden md:block">EDU SOFT</p>
+          <p className="font-bold text-xl hidden md:block">EDU SPHERE</p>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -68,7 +68,7 @@ const NavBar = () => {
                   >
                     <div className="lg:hidden flex flex-col">{links}</div>
 
-                    <Link to="/profile">
+                    <Link to='/myProfile'>
                       <button
                         className="ml-4"
                       >

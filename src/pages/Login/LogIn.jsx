@@ -2,7 +2,10 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../provider/AuthContext';
 import Alert from '../../components/Alert/Alert';
-
+import logLottie from '../../assets/lottie/login.json';
+import Lottie from 'lottie-react';
+import axios from 'axios';
+import { format } from 'date-fns';
 const Login = () => {
   const { signInUser, loginWithGoogle } = useContext(AuthContext);
   const location = useLocation();
@@ -24,25 +27,53 @@ const Login = () => {
       });
   };
 
+ 
   const handleGoogleLogIn = () => {
     loginWithGoogle()
-      .then(() => {
-        Alert('success', 'Google log in successful');
-        navigate(`${location.state ? location.state : "/"}`);
+      .then((result) => {
+        const user = result.user;
+        const name = user.displayName;
+        const email = user.email;
+        const image = user.photoURL;
+        const createdDate = format(new Date(), 'PPP p');
+  
+        axios.post('http://localhost:3000/users', {
+          name,
+          email,
+          image,
+          createdDate,
+        })
+          .then(res => {
+            if (res.data.insertedId) {
+              Alert('success', 'New Google user registered!');
+            } else if (res.data.message === 'User already exists') {
+              Alert('success', 'Welcome back! You already have an account.');
+            } else {
+              Alert('info', res.data.message || 'Logged in successfully');
+            }
+            navigate('/');
+          })
+          .catch(error => {
+            Alert('error', error.message || 'Error during Google login');
+          });
       })
       .catch(() => {
-        Alert('error', 'Something went wrong while logging in');
+        Alert('error', 'Something went wrong with Google login');
       });
   };
 
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="p-8 shadow-lg w-full max-w-md border border-indigo-200 rounded-xl">
-        <title>Login Page | Edu Soft</title>
+ return (
+  <div className="flex items-center justify-center min-h-screen  px-4">
+    <div className="flex flex-col md:flex-row w-full max-w-5xl  shadow-lg border border-indigo-200 rounded-xl overflow-hidden">
+      
+      <div className="md:w-1/2 flex items-center justify-center p-6 bg-pink-50">
+        <Lottie animationData={logLottie} style={{ width: '100%', maxWidth: 400 }} />
+      </div>
 
-        <h2 className="text-2xl font-bold text-center  mb-2">
-          Welcome Back to Mate!
-        </h2>
+      <div className="md:w-1/2 p-8">
+        <title>Login Page | Edu Sphere</title>
+
+        <h2 className="text-2xl font-bold text-center mb-2">Welcome Back to Mate!</h2>
         <p className="text-center text-sm mb-6">
           Please log in to continue to your account.
         </p>
@@ -80,7 +111,7 @@ const Login = () => {
 
         <button
           onClick={handleGoogleLogIn}
-          className="mt-4 w-full flex items-center justify-center text-white border border-gray-300 py-2 rounded-md bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 transition text-sm"
+          className="mt-4 w-full flex items-center justify-center text-white  py-2 rounded-md bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 transition text-sm"
         >
           <svg aria-label="Google logo" width="18" height="18" className="mr-2 rounded-2xl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <g>
@@ -94,15 +125,17 @@ const Login = () => {
           Login with Google
         </button>
 
-        <p className="text-center mt-6 text-sm text-gray-600">
+        <p className="text-center mt-6 text-sm ">
           Don't have an account?{' '}
-          <Link to="/auth/register" className="text-indigo-600 hover:underline">
+          <Link to="/auth/register" className="text-pink-700 hover:underline">
             Register here
           </Link>
         </p>
       </div>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Login;

@@ -101,7 +101,7 @@ const MyLists = ({ myArticlesPromise }) => {
 
   return (
     <div>
-      <title>My All Articles | Edu Soft</title>
+      <title>My All Articles | Edu Sphere</title>
       <h2 className="text-3xl font-semibold text-center my-10">
         My Browse All Articles
       </h2>

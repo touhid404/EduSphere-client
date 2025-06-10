@@ -10,7 +10,7 @@ const Root = () => {
                 <NavBar></NavBar>
             </header>
            
-            <main className='max-w-7xl mx-auto'>
+            <main className='max-w-7xl mx-auto scroll-smooth'>
                 <Outlet></Outlet>
 
             </main>

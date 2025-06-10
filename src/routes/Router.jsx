@@ -11,6 +11,7 @@ import AllArticles from "../pages/AllArticles/AllArticles";
 import PrivateRoute from "../private/PrivateRoute";
 import ArticleDetails from "../pages/ArticleDetails/ArticleDetails";
 import MyArticles from "../pages/MyArticles/MyArticles";
+import MyProfile from "../pages/myProfile/MyProfile";
 
 
 export const router = createBrowserRouter([
@@ -78,6 +79,12 @@ export const router = createBrowserRouter([
             {
                 path: 'auth/login',
                 Component: LogIn
+            },
+            {
+                path: 'myProfile',
+                element: <PrivateRoute>
+                    <MyProfile></MyProfile>
+                </PrivateRoute>
             }
             
 

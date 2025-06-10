@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="py-10 mt-12 border-t border-gray-200 dark:border-gray-700">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">EDU SOFT</h2>
+          <h2 className="text-2xl font-bold ">EDU SPHERE</h2>
           <p className="text-sm mt-1">Empowering minds through articles</p>
         </div>
 
@@ -58,7 +58,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 pt-4">
-        &copy; {new Date().getFullYear()} EDU SOFT. All rights reserved.
+        &copy; {new Date().getFullYear()} EDU SPHERE. All rights reserved.
       </div>
     </footer>
   );

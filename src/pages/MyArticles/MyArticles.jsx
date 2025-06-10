@@ -5,7 +5,7 @@ import { myArticlesPromise } from './../../api/ArticleApi';
 import Loader from '../../components/Loader/Loader';
 
 
-// 
+
 
 
 const MyArticles = () => {
