@@ -3,7 +3,7 @@ import { AuthContext } from '../../provider/AuthContext';
 import Alert from '../../components/Alert/Alert';
 import { myCommentsPromise } from './../../api/CommentApi';
 import Lottie from 'lottie-react';
-import profileLottie from '../../assets/lottie/login.json';
+import profileLottie from '../../assets/lottie/myProfile.json';
 import MyComments from './MyCommnets';
 import Loader from '../../components/Loader/Loader';
 
@@ -29,9 +29,8 @@ const MyProfile = () => {
 
   return (
     <div className="min-h-screen px-4 py-8">
-      {/* Profile Card */}
       <div className="flex flex-col md:flex-row w-full max-w-5xl mx-auto shadow-lg border border-indigo-200 rounded-xl overflow-hidden">
-        <div className="md:w-1/2 flex items-center justify-center p-6 bg-pink-50">
+        <div className="md:w-1/2 flex items-center justify-center p-6 ">
           <Lottie animationData={profileLottie} style={{ width: '100%', maxWidth: 400 }} />
         </div>
 
@@ -60,7 +59,7 @@ const MyProfile = () => {
                 type="email"
                 value={user?.email}
                 readOnly
-                className="w-full px-4 py-2 bg-gray-100 text-gray-600 border border-gray-300 rounded-md cursor-not-allowed"
+                className="w-full px-4 py-2   border border-gray-300 rounded-md cursor-not-allowed"
               />
             </div>
 
@@ -84,8 +83,7 @@ const MyProfile = () => {
         </div>
       </div>
 
-      {/* Comment Section at Bottom */}
-      <div className="mt-10 max-w-5xl mx-auto">
+      <div className="mt-10 max-w-4xl mx-auto">
         <Suspense fallback={<Loader />}>
           <MyComments myCommentsPromise={myCommentsPromise(user?.email)} />
         </Suspense>
