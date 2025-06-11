@@ -34,6 +34,12 @@ const ArticleDetails = () => {
   } = article;
   //Like functionality 
    const [likes, setLikes] = useState(article.likeCount);
+   const [commentCount, setCommentCount] = useState(article.commentCount);
+
+
+
+
+
    const handleLike = (id) => {
         if(user?.email=== authorEmail){
             Alert('error','Sorry, you can not like your own post');
@@ -80,6 +86,22 @@ const openCommentModal = () => {
   });
 };
 
+ const  handleCountCommentInArticle=(commentArticleId)=>{
+     const updatedComment = commentCount + 1;
+     setCommentCount(updatedComment)
+     const commentInfo = { commentCount: updatedComment };
+      axios.patch(`http://localhost:3000/updateComment/${commentArticleId}`, commentInfo)
+        .then(res => {
+          if (res.data.modifiedCount > 0) {
+        Alert('success', 'comment added successfully!'); 
+          }
+  })
+  .catch(err => {
+    Alert('error', err.message || 'Failed to update article');
+  });
+
+  }
+
 
   const handleComment= ( comment)=>{
 
@@ -97,27 +119,18 @@ const openCommentModal = () => {
     axios.post('http://localhost:3000/addcomments', commentData)
             .then(res => {
                 if (res.data.insertedId) {
+                    handleCountCommentInArticle(commentData.articleId); 
                     setTempcomments( [...tempComments, commentData]);
-                    Alert('success', 'comment added successfully!');
                     
                 }
             })
             .catch(err => {
                 Alert('error', err.message || 'Failed to comment');
             });
-
-
-
-    console.log(commentData)
-
-
-  
-
   }
 
 
 
-  // const commentPromise = fetch(`http://localhost:3000/comments/${_id}`).then(res => res.json());
 
   return (
     <div className="max-w-4xl mx-auto p-6  shadow-lg rounded-2xl mt-10 border border-gray-200">
@@ -148,7 +161,6 @@ const openCommentModal = () => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="prose max-w-none mb-8">
         <p>{content}</p>
       </div>
@@ -183,7 +195,7 @@ const openCommentModal = () => {
         <div className="flex items-center gap-2 text-sm">
           <button className="btn rounded-3xl border border-gray-500" onClick={openCommentModal}>
             <FaRegComment size={18} className="" />
-            <span>Add comment</span>
+            <span>{commentCount} comments</span>
             
           </button>
 

@@ -27,7 +27,7 @@ const Slider = () => {
         {lotties.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col items-center  border border-gray-200 shadow-md hover:shadow-xl rounded-2xl p-6  mx-3 transform transition-transform duration-300 hover:scale-105"
+            className="flex flex-col items-center   hover:shadow-xl rounded-2xl p-6  mx-3 transform transition-transform duration-300 hover:scale-105"
           >
             <Lottie
               animationData={item.animationData}

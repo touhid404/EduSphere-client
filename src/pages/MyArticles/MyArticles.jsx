@@ -20,7 +20,7 @@ const MyArticles = () => {
     <div>
 
       <Suspense fallback={<Loader></Loader>}>
-      <MyLists myArticlesPromise={myArticlesPromise(user?.email)}></MyLists>
+      <MyLists myArticlesPromise={myArticlesPromise(user?.email,localStorage.getItem('token'))}></MyLists>
 
       </Suspense>
 
