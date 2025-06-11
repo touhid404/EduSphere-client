@@ -31,6 +31,7 @@ const ArticleDetails = () => {
     authorEmail,
     authorName,
     authorProfile,
+    
   } = article;
   //Like functionality 
    const [likes, setLikes] = useState(article.likeCount);
@@ -90,7 +91,7 @@ const openCommentModal = () => {
      const updatedComment = commentCount + 1;
      setCommentCount(updatedComment)
      const commentInfo = { commentCount: updatedComment };
-      axios.patch(`http://localhost:3000/updateComment/${commentArticleId}`, commentInfo)
+      axios.patch(`http://localhost:3000/upComment/${commentArticleId}`, commentInfo)
         .then(res => {
           if (res.data.modifiedCount > 0) {
         Alert('success', 'comment added successfully!'); 
