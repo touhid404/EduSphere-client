@@ -137,7 +137,7 @@ const MyComments = ({ myCommentsPromise }) => {
 
   return (
     <div className="p-6 space-y-6 rounded-xl border border-gray-200 shadow-inner">
-      <h1 className="text-3xl font-bold mb-6 text-pink-600 border-b pb-2">
+      <h1 className="text-xl font-bold mb-6 text-pink-600 border-b pb-2">
         💬 My Comments ({comments.length})
       </h1>
 

@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 const Banner = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-24 px-6 mx-4 py-12">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-24 px-4 mx-4 py-12">
       <div>
         <motion.h1
-          className="text-4xl font-extrabold leading-tight"
+          className="text-xl lg:text-5xl font-extrabold leading-tight"
           animate={{ color: ['#1D4ED8', '#DB2777', '#DC2626', '#1D4ED8'] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         >
-          Share Your Knowledge<br />on Edusphere
+          Share Your Knowledge on Edusphere
         </motion.h1>
 
         <p className="max-w-xl  mt-4 text-justify">

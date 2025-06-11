@@ -85,7 +85,7 @@ const MyProfile = () => {
 
       <div className="mt-10 max-w-4xl mx-auto">
         <Suspense fallback={<Loader />}>
-          <MyComments myCommentsPromise={myCommentsPromise(user?.email)} />
+          <MyComments myCommentsPromise={myCommentsPromise(user?.email,localStorage.getItem('token'))} />
         </Suspense>
       </div>
     </div>

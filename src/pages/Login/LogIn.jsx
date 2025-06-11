@@ -51,7 +51,7 @@ const Login = () => {
             } else {
               Alert('info', res.data.message || 'Logged in successfully');
             }
-            navigate('/');
+            navigate(`${location.state ? location.state : "/"}`);
           })
           .catch(error => {
             Alert('error', error.message || 'Error during Google login');

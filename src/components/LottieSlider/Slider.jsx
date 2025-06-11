@@ -4,16 +4,17 @@ import Lottie from 'lottie-react';
 
 import socialPlatform from '../../assets/lottie/social.json';
 import coding from '../../assets/lottie/coding.json';
-import appleLottie from '../../assets/lottie/reg.json';
+import  innovation from '../../assets/lottie/innovation.json';
+import businessLottie from '../../assets/lottie/business.json';
+import hardWorkLottie from '../../assets/lottie/hardwork.json';
 
 const Slider = () => {
   const lotties = [
-    { id: 1, label: 'Social', animationData: socialPlatform },
-    { id: 2, label: 'Coding Now', animationData: coding },
-    { id: 3, label: 'Apple', animationData: appleLottie },
-    { id: 4, label: 'Apple', animationData: appleLottie },
-    { id: 5, label: 'Apple', animationData: appleLottie },
-    { id: 6, label: 'Apple', animationData: appleLottie },
+    { id: 1, label: 'Social Platform', animationData: socialPlatform },
+    { id: 2, label: 'Coding Trend', animationData: coding },
+    { id: 3, label: 'Business Idea', animationData: businessLottie },
+    { id: 4, label: 'Creativity', animationData: innovation },
+    { id: 5, label: 'Mentality', animationData:  hardWorkLottie}
   ];
 
   return (
@@ -27,7 +28,7 @@ const Slider = () => {
         {lotties.map((item) => (
           <div
             key={item.id}
-            className="flex flex-col items-center   hover:shadow-xl rounded-2xl p-6  mx-3 transform transition-transform duration-300 hover:scale-105"
+            className="flex flex-col items-center   hover:shadow-xl rounded-2xl p-4  mx-3 transform transition-transform duration-300 hover:scale-105"
           >
             <Lottie
               animationData={item.animationData}
