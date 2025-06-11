@@ -37,7 +37,7 @@ const Login = () => {
         const image = user.photoURL;
         const createdDate = format(new Date(), 'PPP p');
   
-        axios.post('http://localhost:3000/users', {
+        axios.post('https://edusphere-server.vercel.app/users', {
           name,
           email,
           image,

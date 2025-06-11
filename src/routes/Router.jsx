@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
-                loader: ()=> fetch('http://localhost:3000/featuredArticle'),
+                loader: ()=> fetch('https://edusphere-server.vercel.app/featuredArticle'),
                 hydrateFallbackElement: <Loader></Loader>
                 
             },
@@ -36,15 +36,15 @@ export const router = createBrowserRouter([
             },
             {
                 path:'allArticles',
-                 loader: ()=> fetch('http://localhost:3000/allArticles'),
+                 loader: ()=> fetch('https://edusphere-server.vercel.app/allArticles'),
                 Component: AllArticles,
                 hydrateFallbackElement: <Loader></Loader>
             },
             {
                path: 'articleDetail/:id',
                loader: async ({ params }) => {
-                const articlePromise = fetch(`http://localhost:3000/articles/${params.id}`);
-               const commentPromise = fetch(`http://localhost:3000/comments/${params.id}`);
+                const articlePromise = fetch(`https://edusphere-server.vercel.app/articles/${params.id}`);
+               const commentPromise = fetch(`https://edusphere-server.vercel.app/comments/${params.id}`);
 
                const [articleRes, commentRes] = await Promise.all([articlePromise, commentPromise]);
 

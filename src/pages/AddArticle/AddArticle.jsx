@@ -27,7 +27,7 @@ const AddArticle = () => {
         data.likeCount = 0;
         data.commentCount = 0;
 
-        axios.post('http://localhost:3000/addarticles', data)
+        axios.post('https://edusphere-server.vercel.app/addarticles', data)
             .then(res => {
                 if (res.data.insertedId) {
                     Alert('success', 'Article added successfully!');
@@ -42,7 +42,7 @@ const AddArticle = () => {
     return (
         <div className="max-w-4xl mx-auto px-2 lg:px-6 py-10">
             <h2 className="text-xl lg:text-3xl font-bold text-center mb-8">📝 Create a New Article</h2>
-
+                  <title>Post Articles | Edu Sphere</title>
             <form onSubmit={handleAddArticle} className="shadow-xl rounded-2xl p-3 lg:p-8 space-y-8 border border-gray-100">
 
                 <fieldset className="space-y-6">

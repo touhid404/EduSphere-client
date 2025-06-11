@@ -1,5 +1,5 @@
 export const myCommentsPromise = (email,token)=>{
-    return fetch(`http://localhost:3000/comments?email=${email}`,{
+    return fetch(`https://edusphere-server.vercel.app/comments?email=${email}`,{
         headers: {
             authorization: `Bearer ${token}`
         }

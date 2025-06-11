@@ -18,6 +18,7 @@ const AllArticles = () => {
     return (
         <div className="flex max-w-5xl flex-col md:flex-row lg:flex-row mx-auto px-4 gap-6 mt-5">
             <aside className="w-60 p-4 ">
+                 <title>All Articles | Edu Sphere</title>
                 <h2 className="font-semibold text-xl mb-4">Categories</h2>
                 <ul className="space-y-2">
                     {categories.map((category, index) => (

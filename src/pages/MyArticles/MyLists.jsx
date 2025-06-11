@@ -28,7 +28,7 @@ const MyLists = ({ myArticlesPromise }) => {
     };
 
 
-    axios.patch(`http://localhost:3000/updateArticles/${selectedArticle._id}`, updatedData, {
+    axios.patch(`https://edusphere-server.vercel.app/updateArticles/${selectedArticle._id}`, updatedData, {
 })
 .then(res => {
   if (res.data.modifiedCount) {
@@ -60,7 +60,7 @@ const MyLists = ({ myArticlesPromise }) => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/articles/${_id}`)
+        axios.delete(`https://edusphere-server.vercel.app/articles/${_id}`)
           .then(res => {
             if (res.data.articleDeletedCount) {
               Swal.fire({

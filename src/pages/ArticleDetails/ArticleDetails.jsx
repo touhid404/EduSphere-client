@@ -50,7 +50,7 @@ const ArticleDetails = () => {
         setLikes(updatedLikes);
         const likeInfo = { likeCount: updatedLikes };
 
-        axios.patch(`http://localhost:3000/likes/${id}`, likeInfo)
+        axios.patch(`https://edusphere-server.vercel.app/likes/${id}`, likeInfo)
         .then(res => {
         if (res.data.modifiedCount > 0) {
         Alert('success', 'you like this article successfully!');
@@ -91,7 +91,7 @@ const openCommentModal = () => {
      const updatedComment = commentCount + 1;
      setCommentCount(updatedComment)
      const commentInfo = { commentCount: updatedComment };
-      axios.patch(`http://localhost:3000/upComment/${commentArticleId}`, commentInfo)
+      axios.patch(`https://edusphere-server.vercel.app/upComment/${commentArticleId}`, commentInfo)
         .then(res => {
           if (res.data.modifiedCount > 0) {
         Alert('success', 'comment added successfully!'); 
@@ -117,7 +117,7 @@ const openCommentModal = () => {
             comment,
             commentDate: cDate
     }
-    axios.post('http://localhost:3000/addcomments', commentData)
+    axios.post('https://edusphere-server.vercel.app/addcomments', commentData)
             .then(res => {
                 if (res.data.insertedId) {
                     handleCountCommentInArticle(commentData.articleId); 
@@ -142,6 +142,8 @@ const openCommentModal = () => {
           className="w-full h-72 object-cover rounded-xl mb-6"
         />
       )}
+
+       <title>Articles Details | Edu Sphere</title>
 
       <h1 className="text-xl lg:text-3xl font-bold  mb-3">{title}</h1>
 

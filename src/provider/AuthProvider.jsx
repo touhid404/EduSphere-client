@@ -25,7 +25,7 @@ const AuthProvider = ({children}) => {
 //                role: 'user'
 //            };
 
-//            axios.post('http://localhost:3000/jwt', userData)
+//            axios.post('https://edusphere-server.vercel.app/jwt', userData)
 //           .then(res => {
 //     const token = res.data.token;
 //     localStorage.setItem('token', token);
@@ -57,7 +57,7 @@ const AuthProvider = ({children}) => {
       };
 
       try {
-        const res = await axios.post('http://localhost:3000/jwt', userData,{
+        const res = await axios.post('https://edusphere-server.vercel.app/jwt', userData,{
             withCredentials: true
         });
         localStorage.setItem('token', res.data.token);

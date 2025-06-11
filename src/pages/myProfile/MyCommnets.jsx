@@ -45,7 +45,7 @@ const MyComments = ({ myCommentsPromise }) => {
 
    
 
-    axios.patch(`http://localhost:3000/updateComment/${id}`, updatedComment)
+    axios.patch(`https://edusphere-server.vercel.app/updateComment/${id}`, updatedComment)
       .then(res => {
         if (res.data.modifiedCount) {
           const updatedComments = comments.map(comment =>
@@ -75,7 +75,7 @@ const MyComments = ({ myCommentsPromise }) => {
   //     confirmButtonText: "Yes, delete it!"
   //   }).then((result) => {
   //     if (result.isConfirmed) {
-  //       axios.delete(`http://localhost:3000/comments/${_id}`)
+  //       axios.delete(`https://edusphere-server.vercel.app/comments/${_id}`)
   //         .then(res => {
   //           if (res.data.deletedCount) {
   //             Swal.fire({
@@ -110,7 +110,7 @@ const MyComments = ({ myCommentsPromise }) => {
     confirmButtonText: "Yes, delete it!"
   }).then((result) => {
     if (result.isConfirmed) {
-      axios.delete(`http://localhost:3000/comments/${_id}?articleId=${articleId}`)
+      axios.delete(`https://edusphere-server.vercel.app/comments/${_id}?articleId=${articleId}`)
         .then(res => {
           if (res.data.deletedCount) {
             Swal.fire({

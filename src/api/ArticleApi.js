@@ -1,5 +1,5 @@
 export const myArticlesPromise = (email,token) => {
-    return fetch(`http://localhost:3000/articles?email=${email}`, {
+    return fetch(`https://edusphere-server.vercel.app/articles?email=${email}`, {
         headers: {
             authorization: `Bearer ${token}`
         }
