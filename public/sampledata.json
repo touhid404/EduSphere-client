@@ -1,0 +1,102 @@
+[
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2c3",
+    "title": "The Future of AI in Everyday Life",
+    "content": "Artificial intelligence is becoming increasingly integrated into our daily routines, from smart assistants to personalized recommendations...",
+    "category": "Technology",
+    "tags": ["AI", "Future", "Innovation"],
+    "author_id": "661a3b2f6c5e2b001e8c0d9a",
+    "author_name": "Afra Anjum Subha",
+    "author_photo": "https://example.com/photos/afra.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2c4",
+    "title": "Climate Change and Its Global Impact",
+    "content": "The effects of climate change are becoming more visible, with extreme weather and rising sea levels affecting millions...",
+    "category": "Environment",
+    "tags": ["Climate", "Global Warming", "Sustainability"],
+    "author_id": "661a3b2f6c5e2b001e8c0d9b",
+    "author_name": "Rahim Uddin",
+    "author_photo": "https://example.com/photos/rahim.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2c5",
+    "title": "Top 10 Programming Languages in 2025",
+    "content": "Programming languages continue to evolve. Here's a look at the most popular and in-demand languages for 2025...",
+    "category": "Technology",
+    "tags": ["Programming", "Languages", "Development"],
+    "author_id": "661a3b2f6c5e2b001e8c0d9c",
+    "author_name": "Tanvir Hasan",
+    "author_photo": "https://example.com/photos/tanvir.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2c6",
+    "title": "Healthy Eating Habits for a Better Life",
+    "content": "Maintaining healthy eating habits is key to a longer and happier life. Here are some simple tips to get started...",
+    "category": "Health",
+    "tags": ["Health", "Nutrition", "Lifestyle"],
+    "author_id": "661a3b2f6c5e2b001e8c0d9d",
+    "author_name": "Farzana Nahar",
+    "author_photo": "https://example.com/photos/farzana.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2c7",
+    "title": "Exploring the Wonders of Space",
+    "content": "From black holes to distant galaxies, space continues to fascinate scientists and enthusiasts alike...",
+    "category": "Science",
+    "tags": ["Space", "Astronomy", "Discovery"],
+    "author_id": "661a3b2f6c5e2b001e8c0d9e",
+    "author_name": "Ahsan Hossain",
+    "author_photo": "https://example.com/photos/ahsan.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2c8",
+    "title": "Mental Health in the Digital Age",
+    "content": "The digital era has brought both opportunities and challenges for mental well-being. Here's how to stay balanced...",
+    "category": "Health",
+    "tags": ["Mental Health", "Digital Life", "Wellness"],
+    "author_id": "661a3b2f6c5e2b001e8c0d9f",
+    "author_name": "Sumaiya Akter",
+    "author_photo": "https://example.com/photos/sumaiya.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2c9",
+    "title": "The Rise of Remote Work",
+    "content": "Remote work is here to stay. Learn how companies and employees are adapting to the new normal...",
+    "category": "Business",
+    "tags": ["Remote Work", "Productivity", "Future of Work"],
+    "author_id": "661a3b2f6c5e2b001e8c0da0",
+    "author_name": "Hasibul Kabir",
+    "author_photo": "https://example.com/photos/hasibul.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2ca",
+    "title": "Travel on a Budget: Tips and Tricks",
+    "content": "Traveling doesn't have to be expensive. Discover how you can explore the world on a budget...",
+    "category": "Lifestyle",
+    "tags": ["Travel", "Budget", "Adventure"],
+    "author_id": "661a3b2f6c5e2b001e8c0da1",
+    "author_name": "Lamia Sultana",
+    "author_photo": "https://example.com/photos/lamia.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2cb",
+    "title": "The Basics of Investing for Beginners",
+    "content": "New to investing? This guide will help you get started with simple strategies and essential knowledge...",
+    "category": "Finance",
+    "tags": ["Investing", "Finance", "Beginners"],
+    "author_id": "661a3b2f6c5e2b001e8c0da2",
+    "author_name": "Sajid Rahman",
+    "author_photo": "https://example.com/photos/sajid.jpg"
+  },
+  {
+    "_id": "662fa5e4b0c5a1a5f7e1b2cc",
+    "title": "How to Start a Tech Blog",
+    "content": "Starting a tech blog can be rewarding and fun. Here’s a roadmap to get your ideas out into the world...",
+    "category": "Technology",
+    "tags": ["Blogging", "Tech", "Writing"],
+    "author_id": "661a3b2f6c5e2b001e8c0da3",
+    "author_name": "Nafisa Tabassum",
+    "author_photo": "https://example.com/photos/nafisa.jpg"
+  }
+]
