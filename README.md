@@ -27,15 +27,22 @@ A simple and engaging platform where users can share their ideas, insights, and 
 
 ## 📦 NPM Packages Used
 
-* `react` — Core frontend library
-* `react-router-dom` — Routing between pages
-* `react-icons` — Icon components
-* `firebase` — Authentication and hosting services
-* `axios` — HTTP requests to backend
-* `cors` — Enable cross-origin resource sharing on server
-* `dotenv` — Manage environment variables
-* `express` — Backend API framework
-* `nodemon` — Auto-restart server during development
+- `@tailwindcss/vite` — ^4.1.8  
+- `axios` — ^1.9.0  
+- `daisyui` — ^5.0.43  
+- `date-fns` — ^4.1.0  
+- `firebase` — ^11.9.0  
+- `lottie-react` — ^2.4.1  
+- `motion` — ^12.16.0  
+- `react` — ^19.1.0  
+- `react-dom` — ^19.1.0  
+- `react-fast-marquee` — ^1.6.5  
+- `react-icons` — ^5.5.0  
+- `react-router` — ^7.6.2  
+- `react-tooltip` — ^5.28.1  
+- `sweetalert2` — ^11.22.0  
+- `swiper` — ^11.2.8  
+- `tailwindcss` — ^4.1.8  
 
 ---
 
